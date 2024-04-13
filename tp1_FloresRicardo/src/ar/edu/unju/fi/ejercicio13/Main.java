@@ -9,16 +9,18 @@ public class Main {
 	int[] numero;
 	numero = new int[8];
 	
-	Scanner teclado = new Scanner(System.in);
+	Scanner sc = new Scanner(System.in);
 	
 	for(int i=0;i<numero.length;i++)
 	{
 		System.out.println("Ingrese numero entero: ");
-		numero[i] = teclado.nextInt();
+		numero[i] = sc.nextInt();
 	}
 	for(int i=0;i<numero.length;i++)
 	{
 		System.out.println("Contenido "+numero[i]+" posicion "+i);
 	}
+	sc.close();
 	}
+	
 }
