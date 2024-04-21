@@ -8,12 +8,10 @@ import java.util.Scanner;
 import ar.edu.unju.fi.ejercicio17.model.Jugador;
 
 public class Main {
-
 	public static void main(String[] args) {
-		
 		List<Jugador>plantel = new ArrayList<Jugador>();
 		Scanner sc = new Scanner(System.in);
-		int op;
+		String op;
 		do {
 		System.out.println("MENU");
 		System.out.println("1- Alta de Jugador");
@@ -24,34 +22,37 @@ public class Main {
 		System.out.println("6- Mostrar cantidad de jugadores que tiene el ArrayList");
 		System.out.println("7- Mostrar la cantidad de Jugadores que pertenecen a una nacionalidad");
 		System.out.println("8- Salir");
-		System.out.println("Ingrese Opcion: "); 
-		op= sc.nextInt();
-		switch(op) 
+		System.out.print("Ingrese Opcion: "); 
+		op= sc.next();
+		switch(op)
 		{
-			case 1: Jugador jg = new Jugador();
-					jg.altaJugador();
-					plantel.add(jg);
-					break;
-			case 2: mostrarEsp(plantel);
-					break;
-			case 3: mostrarOrden(plantel);
-					break;
-			case 4: modJugador(plantel);
-					break;
-			case 5: eliminar(plantel);
-					break;
-			case 6: System.out.println("Cantidad de jugadores: "+ plantel.size());
-					break;
-			case 7: cantJugadNac(plantel);
-					break;
-			default :
+			case "1": Jugador jg = new Jugador();
+					  jg.altaJugador();
+					  plantel.add(jg);
+					  break;
+			case "2": mostrarEsp(plantel);
+					  break;
+			case "3": mostrarOrden(plantel);
+					  break;
+			case "4": modJugador(plantel);
+					  break;
+			case "5": eliminar(plantel);
+					  break;
+			case "6": System.out.println("Cantidad de jugadores: "+ plantel.size());
+					  break;
+			case "7": cantJugadNac(plantel);
+					  break;
+			default:  System.out.println("Opcion ingresada inexistente");
+					  break;
 		 }
-		}while(op!=8);
-		sc.close();
+		sc.nextLine();
+		System.out.print("Presione ENTER para continuar...");
+		sc.nextLine();
+		}while(!op.equals("8"));
+		
 	}
 
 	public static void mostrarEsp(List<Jugador> plantel) {
-		
 		Scanner sc = new Scanner(System.in);
 		String nombre;
 		String apellido;
@@ -63,7 +64,6 @@ public class Main {
 			if(j.getNombre().equals(nombre) && j.getApellido().equals(apellido))
 				j.mostrarDatos();
 		}
-		sc.close();
 	}
 	
 	public static void mostrarOrden(List<Jugador> plantel) {
@@ -73,7 +73,6 @@ public class Main {
 	}
 	
 	public static void modJugador(List<Jugador> plantel) {
-		
 		Scanner sc = new Scanner(System.in);
 		String nombre;
 		String apellido;
@@ -85,11 +84,9 @@ public class Main {
 			if(j.getNombre().equals(nombre) && j.getApellido().equals(apellido))
 				j.altaJugador();
 		}
-		sc.close();
 	}
 	
-	public static void eliminar (List<Jugador> plantel) {
-		
+	public static void eliminar(List<Jugador> plantel) {
 		Scanner sc = new Scanner(System.in);
 		String nombre;
 		String apellido;
@@ -105,11 +102,9 @@ public class Main {
 			System.out.println("Jugador eliminado");
 		else 
 			System.out.println("Jugador no encontrado");
-		sc.close();
 	}
 	
 	public static void cantJugadNac(List<Jugador> plantel) {
-		
 		Scanner sc = new Scanner(System.in);
 		String nacionalidad;
 		int i=0;
@@ -120,8 +115,5 @@ public class Main {
 			i++;
 		}
 		System.out.println("Cantidad de jugadores de "+nacionalidad+" son:"+i);
-		sc.close();
 	}
-	
-	
 }

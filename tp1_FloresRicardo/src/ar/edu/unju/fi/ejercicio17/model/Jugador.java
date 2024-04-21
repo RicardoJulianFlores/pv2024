@@ -46,7 +46,6 @@ public class Jugador {
 		sc.nextLine();
 		System.out.print("Ingrese su Posicion (Delantero, Mediocampista, Defensor, Arquero): ");
 		posicion=sc.nextLine();
-		sc.close();
 	}
 	
 	public int calcularEdad() {
